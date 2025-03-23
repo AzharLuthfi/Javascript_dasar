@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typeof</title>
+  </head>
+  <body>
+    <script>
+      // typeof operator
+      // untuk mengetahui jenis data dari sebuah variabel
+      let a = 10;
+      let b;
+      let c = "Hello";
+      let d = true;
+
+      let orang = { name: "John", age: 30 };
+
+      let arrNama = ["Muhamad", "azhar", "Luthfiadi", 1];
+
+      const tipedata = typeof a;
+      document.writeln(`<p>${tipedata}</p>`); // uotput : number
+      const tipedata2 = typeof b;
+      document.writeln(`<p>${tipedata2}</p>`); // output: undefined
+      const tipedata3 = typeof c;
+      document.writeln(`<p>${tipedata3}</p>`); // output: string
+      const tipedata4 = typeof d;
+      document.writeln(`<p>${tipedata4}</p>`); // output: boolean
+      const tipedata5 = typeof orang;
+      document.writeln(`<p>${tipedata5}</p>`); // output: object
+      const tipedata6 = typeof arrNama;
+      document.writeln(`<p>${tipedata6}</p>`); // output: object
+    </script>
+  </body>
+</html>

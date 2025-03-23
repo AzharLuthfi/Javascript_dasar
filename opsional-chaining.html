@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opsional Chaining</title>
+  </head>
+  <body>
+    <script>
+      // Objek
+      let person = {};
+      // berikan tanda tanya disetiap object atau properti yang ingin di cek apakah null atau tidak
+      // cara bacanya:
+      // jika person kosong tulis undefine, jika ada cari property address
+      // jika address kosong tulis undefine, jika ada cari property country
+      let country = person?.address?.country;
+      console.log(country); // undefined
+
+      document.writeln(country);
+      document.writeln("suksess");
+    </script>
+  </body>
+</html>

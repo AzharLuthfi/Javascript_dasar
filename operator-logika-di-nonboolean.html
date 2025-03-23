@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>operaor logika di nonboolean</title>
+  </head>
+  <body>
+    <script>
+      // operasi logika di non boolean
+
+      // oprator OR (||)
+      // akan mencari nilai truthy dan melewatkan falsy dari kondisi
+      console.info("hello" || ""); // hello
+      console.info(null || "manis"); // manis
+
+      // operator AND (&&)
+      // akan mencari nilai falsy dan melewatkan truthy dari kondisi (kebalikan)
+      console.info("hello" && "manis"); // manis
+      console.info(null && "manis"); // manis
+      console.info("" && null); // manis
+    </script>
+  </body>
+</html>

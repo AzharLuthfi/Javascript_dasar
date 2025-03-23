@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rest Parameter</title>
+  </head>
+  <body>
+    <script>
+      // Rest Parameter
+      // The rest parameter is a parameter in a function that allows us
+      // to pass a variable number of arguments to a function.
+      // The rest parameter is denoted by three dots (...) before the parameter name.
+      // The rest parameter is used to pass a variable number of arguments to a function.
+      // rest parameter harus disimpan di akhir
+
+      function addNumbers(nama, ...numbers) {
+        let sum = 0;
+        for (const item of numbers) {
+          sum += item;
+        }
+        console.log(`Buah: ${nama}, total: ${sum}`);
+      }
+      addNumbers("apel", 1, 2, 3, 4, 5);
+
+      // jika kita sudah terlanjut punya data array
+      // kita bisa menggunakan rest parameter
+      addNumbers("orange", ...[1, 2, 3, 4, 5]); // tambah '...' di depan array
+
+      addNumbers("guava", [1, 2, 3, 4, 5]); // jika tidak ditambah '...' di depan array maka akan di tulis sebagai nilai awa tidak di jumlahkan
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sum(x, y) {
+        let z = x + y;
+        return z;
+      }
+
+      document.writeln(`berikut function dengan return value <br>`);
+      document.writeln(`5 + 10 = ${sum(5, 10)}  <br>`);
+      document.writeln(`7 + 13 = ${sum(7, 13)}  <br>`);
+      document.writeln(`2 + 4 = ${sum(2, 4)}  <br><br>`);
+
+      // retun value bisa di panggil berkali kali dalam satu function
+      document.writeln(`\n\nberikut function function getNilai() <br>`);
+      function getNilai(nilai) {
+        if (nilai >= 80) {
+          return "A";
+        } else if (nilai >= 70) {
+          return "B";
+        } else if (nilai >= 60) {
+          return "C";
+        } else if (nilai >= 50) {
+          return "D";
+        } else {
+          return "E";
+        }
+      }
+
+      // panggil function getNilai
+      document.writeln(`nilai 90 = ${getNilai(90)}  <br>`);
+
+      // pengunaan return untuk menhentikan function
+      function isContains(array, searchValue) {
+        for (let i = 0; i < array.length; i++) {
+          console.info(`iterasi elemnet: ${array[i]}`);
+          if (array[i] === searchValue) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      // panggil function isContains
+      document.writeln(`\n\nberikut function isContains <br>`);
+      document.writeln(`apakah array [1,2,3,4,5] mengandung nilai 3`);
+      document.writeln(`? ${isContains([1, 2, 3, 4, 5], 3)}  <br>`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tipe Data Object</title>
+  </head>
+  <body>
+    <script>
+      // Membuat objek
+      const person = {
+        //membuat representasi property atau atribut (nama atribut pake "" kalo lebih dari satu kata)
+        name: "John",
+        age: 30,
+        address: "bandung",
+      };
+
+      // rubah atribut/property object terpisah dengan deklarasi object
+      // person["name"] = "azhar";
+      // person["alamat"] = "Bandung";
+      // person["umur"] = 21;
+
+      console.table(person);
+
+      // bisa untuk merubah nilai atribut/property object (jika merubah di luara object atribut pake titik 2)
+      person["age"] = 28;
+      console.table(person);
+
+      // menampilkan isi array sesuai atribut
+      console.log(person.name);
+      console.log(`nama: ${person.name}`);
+      console.log(`umur: ${person["age"]}`); // bisa seperti ini
+      console.log(person.age); // atau ini
+    </script>
+  </body>
+</html>

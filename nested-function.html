@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested Function</title>
+  </head>
+  <body>
+    <script>
+      function outer(nilai) {
+        let x = nilai;
+        function inner() {
+          let y = 20;
+          console.log(`ini nilai inner ${x + y}`);
+        }
+        console.log(`ini nilai outer ${x}`);
+
+        inner();
+      }
+
+      outer(20);
+      //   inner(); // seharusnya tidak jalan karena didklarasi diluar function outer
+    </script>
+  </body>
+</html>

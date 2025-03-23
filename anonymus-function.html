@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anonymus Function</title>
+  </head>
+  <body>
+    <script>
+      // Anonymous Function
+      // Anonymous Function is a function without a name
+      // Anonymous Function is used when we don't need to reuse a function
+      // ada dua cara memakai annymus function
+      // 1. function tanpa nama disimpan dalam sebuah variabel
+      let say = function (name) {
+        console.log(`Hello ${name}!`);
+      };
+      // say disini adalah nama varibel bukan nama function
+      say("John");
+      say("Azhar");
+
+      // 2. function tanpa nama dijadikan sebagai parameter
+      function givemeName(callback) {
+        callback("jajang suherman");
+      }
+      // callback disini adalah nama parameter bukan nama function
+
+      givemeName(function (name) {
+        console.log(`Hello ${name}!`);
+      });
+    </script>
+  </body>
+</html>

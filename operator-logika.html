@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Logika</title>
+  </head>
+  <body>
+    <script>
+      // opertor logika:
+      // && (dan)
+      // || (atau)
+      // ! (tidak)
+
+      const nilaiUjian = 80;
+      const nilaiTugas = 60;
+
+      const lulusUjian = nilaiUjian >= 70;
+      const lulusTugas = nilaiTugas >= 70;
+
+      const lulus = lulusUjian && lulusTugas;
+      document.writeln(
+        "<p> nilai ujian: " +
+          nilaiUjian +
+          " dan nilai tugas: " +
+          nilaiTugas +
+          " kelulusannya: " +
+          lulus +
+          "</p>"
+      );
+    </script>
+  </body>
+</html>

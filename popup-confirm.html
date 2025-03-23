@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup confirm</title>
+  </head>
+  <body>
+    <script>
+      // confrim mengembalikan nilai boolean true or flase
+      const masuk = confirm("anda yakin ingin masuk?");
+
+      if (masuk) {
+        const nama = prompt("masukkan nama");
+        alert(`selamat datang: ${nama}`);
+      } else {
+        alert("selamat jalan");
+      }
+    </script>
+  </body>
+</html>

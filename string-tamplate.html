@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Tamplate</title>
+  </head>
+  <body>
+    <script>
+      let name = "John";
+      const nilai = 70;
+      // cara lama:
+      //   const hasil = "name: " + name + ", Lulus: " + (nilai >= 70 ? "Ya" : "Tidak");
+
+      // cara terbaru: pake backtick ``
+      const hasil = `name: ${name}, Lulus: ${nilai >= 70 ? "Ya" : "Tidak"}`;
+
+      console.info(hasil);
+
+      // multi line string: bsa pake enter
+      const multiLine = `
+      muhamad
+      azhar
+      luthfiadi
+      `;
+      document.writeln("<pre>");
+      document.writeln(multiLine);
+      document.writeln("</pre>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function</title>
+  </head>
+  <body>
+    <script>
+      // Function declaration
+      // potongan code program yang bisa di gunakna dengan cara dipanggil
+      // dapat memiliki parameter ataupun tidak sesuai kebutuhan
+      // dapat memiliki lebih dari satu parameter
+      function greet(fristname, lastname) {
+        document.writeln(`<p>Hello, ${fristname} ${lastname}!</p>`);
+      }
+
+      let fristname = "jhon";
+      let lastname = "doe";
+      //   memanggil function greet
+      greet("Muhamad", "azhar");
+      greet("michael", "luthfi"); // boleh panggil berkali-kali
+      greet("jhon"); // panggil function greet sebanyak 3 kali
+      greet(fristname, lastname); // parameter diambil dari variable
+
+      // function with default parameter
+      function registration(nama, umur, alamat, email, phone = "08123456789") {
+        console.info(nama);
+        console.info(umur);
+        console.info(alamat);
+        console.info(email);
+        console.info(phone);
+      }
+
+      registration("azhar", 21, "jalan jalan", "azhar@gmail.com");
+    </script>
+  </body>
+</html>

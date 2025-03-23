@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konversi String dan Number</title>
+  </head>
+  <body>
+    <script>
+      // mengkonversi string ke number
+      const a = "100.1";
+      document.writeln(`<p> ini pake parseInt(): ${parseInt(a)}</p>`); // akan dirubah jadi bil. bulat
+      document.writeln(`<p> ini pake parseFloat(): ${parseFloat(a)}</p>`); // akan dirubah jadi bil. pecahan
+      document.writeln(`<p> Ini pake Number(): ${Number(a)}</p>`); // tidak peduli pecahan atau bl. bulat akan di cetak
+
+      // mengkonversi number ke string
+      const b = 5;
+      const c = 2;
+      const total = b.toString() + c.toString(); // tanpa toString hasilnya 7
+      document.writeln(`<p>ini pake .toString(): ${total}</p>`); // hasilnya jadi 5 + 2 : 52
+
+      // NaN (Not a Number): jika yang diisikan buak number yang valid
+      const d = "abc";
+      document.writeln(
+        `<p>ini pake parseInt() dengan input "abc": ${parseInt(d)}</p>`
+      ); // NaN
+
+      const e = "1.1text";
+      document.writeln(
+        `<p>ini pake parseFloat() dengan input "1.1text": ${parseFloat(e)}</p>`
+      ); // 1.1 --> dia mentolelir kesalahan ssetelah angka jika di depan maka akann menjadi NaN
+
+      document.writeln(
+        `<p> ini pake number dengan input "1.1text": ${Number(e)}</p>`
+      ); // NaN --> dia tidak menolelir kesalahan sekecil apapun
+    </script>
+  </body>
+</html>

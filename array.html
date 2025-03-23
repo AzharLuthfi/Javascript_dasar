@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      // beda denga php kita tidak bisa menggunakan asosiative array.
+      // hanya bisa dalam bentuk index angka untuk array
+
+      const arrKosong = []; // cara inisialisasi array kosong
+      let arrAngka = [1, 2, 3, 4, 5]; // cara bikin array ada isinya
+      let arrNama = ["Muhamad", "azhar", "Luthfiadi", 1]; // cara bikin array ada isinya
+
+      // cara menambahkan element ke array pake ".push"
+      arrKosong.push("azar");
+      arrKosong.push("azmi", "Budi", "Sulistio");
+
+      // untuk menampilkan isi array dalam bentuk table
+      console.table(arrKosong);
+
+      // untuk menampilkan pajang array
+      console.info(`panjang array ini: ${arrKosong.length}`);
+
+      // untuk menampilkan nilai dari index array
+      console.info(`index ke 2 array ini: ${arrKosong[2]}`);
+
+      // megisi nilai pada index tertentu
+      arrKosong[2] = "Luthfiadi";
+
+      // untuk menampilkan isi array dalam bentuk table
+      console.table(arrKosong);
+
+      console.info(`index ke 2 array ini: ${arrKosong[2]}`);
+
+      // menghapus nilai pada index tertentu namun indx tidak bergeser(panjang array tetap sama)
+      delete arrKosong[2];
+
+      // untuk menampilkan isi array dalam bentuk table
+      console.table(arrKosong);
+    </script>
+  </body>
+</html>

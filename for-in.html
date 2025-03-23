@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For In</title>
+  </head>
+  <body>
+    <script>
+      // For In
+      // For In is used to iterate over the properties of an object.
+      // It is similar to the For Of loop, but it iterates over the properties of an
+      // object, not the values of an array.
+      let person = {
+        name: "John",
+        age: 30,
+      };
+
+      for (const property in person) {
+        console.log(`${property}: ${person[property]}`);
+      }
+
+      let car = [1, 2, 3, 4, 5];
+
+      for (const index in car) {
+        console.log(`${index}: ${car[index]}`);
+      }
+    </script>
+  </body>
+</html>

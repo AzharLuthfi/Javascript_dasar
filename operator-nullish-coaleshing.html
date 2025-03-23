@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Nullish Cooaleshing</title>
+  </head>
+  <body>
+    <script>
+      // Nullish Coalescing Operator (??)
+      // It returns the first operand if it is not null or undefined.
+      // Otherwise, it returns the second operand.
+      let name = "John";
+      let name2 = name ?? "Unknown"; // nilai default jika name bernilai null atau undefine adalah "Unknown"
+      console.log(name2); // Output: John
+
+      // If the first operand is null or undefined, it returns the second operand.
+      let name3 = undefined; // atau null
+      let name4 = name3 ?? "Unknown";
+      console.log(name4); // Output: Unknown
+    </script>
+  </body>
+</html>

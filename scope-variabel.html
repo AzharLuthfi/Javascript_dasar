@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scope Variabel</title>
+  </head>
+  <body>
+    <script>
+      // scope global, berada di kode paling luar,
+      // bisa digunakan di semua function yang dideklarasikan
+      // contoh:
+      let global = "ini variabel global";
+      // tampilin variabel global
+      console.log(global);
+
+      function HitMe() {
+        // scope local untuk function HitMe,
+        // hanya bisa di pake didalam function tempat dia di deklarasikan
+        let local = "ini variabel local";
+        console.log(global + " dan " + local);
+      }
+
+      HitMe();
+
+      //   function hello() {
+      //     let hello = "ini variabel hello";
+      //     console.log(local); // menampilkan error: var local is not define,
+      //                            karena var local berada di dalam function HitMe
+      //   }
+
+      //   hello();
+    </script>
+  </body>
+</html>
