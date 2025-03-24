@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Generator</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * Function Generator dalam JavaScript adalah fungsi khusus yang dapat menghentikan
+       * eksekusinya sementara dan melanjutkannya kembali di titik terakhir.
+       *
+       * Ciri khas function generator adalah penggunaan tanda bintang (*) setelah `function`
+       * dan penggunaan `yield` untuk mengembalikan nilai tanpa menghentikan eksekusi fungsi sepenuhnya.
+       *
+       * Saat dipanggil, function generator tidak langsung dieksekusi, tetapi mengembalikan objek iterator
+       * yang bisa digunakan untuk mengontrol eksekusi dengan `next()`.
+       *
+       * Contoh penggunaan:
+       */
+
+      function* contohGenerator() {
+        yield 1; // Menghentikan sementara dan mengembalikan nilai 1
+        yield 2; // Menghentikan sementara dan mengembalikan nilai 2
+        yield 3; // Menghentikan sementara dan mengembalikan nilai 3
+      }
+
+      const generator = contohGenerator();
+
+      console.log(generator.next().value); // Output: 1
+      console.log(generator.next().value); // Output: 2
+      console.log(generator.next().value); // Output: 3
+      console.log(generator.next().done); // Output: true (karena generator sudah selesai)
+
+      //   pake pengulangan of agar lebih praktis
+      // ini bisa dilakukan karena generator adalah iterator tapi
+      // tidak seperti array yang bisa diambil berdasarkan index array
+      const numbers = contohGenerator();
+      for (const number of numbers) {
+        console.log(number);
+      }
+
+      function* ganjil(value) {
+        for (let i = 1; i <= 100; i++) {
+          if (i % 2 !== 0) {
+            yield i;
+          }
+        }
+      }
+
+      const nilai = ganjil(100);
+      for (const numberGanjil of nilai) {
+        console.log(numberGanjil);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Function</title>
+  </head>
+  <body>
+    <script>
+      const fungsiBiasa = function (nama) {
+        return `Halo, ${nama}`;
+      };
+
+      // Menggunakan Arrow Function
+      const arrowFungsi = (nama) => `Halo, ${nama}`; // tidak perlu menuliskan "function"
+
+      console.log(fungsiBiasa("Rizky")); // Output: Halo, Rizky
+      console.log(arrowFungsi("Rizky")); // Output: Halo, Rizky
+
+      //   Perbedaan utama:
+      // Tidak perlu menulis function.
+      // Jika hanya ada satu parameter, tanda kurung () bisa dihilangkan.
+      // Jika hanya satu baris return, {} dan return bisa dihilangkan.
+
+      const tambah = (a, b) => a + b; // ini masil satu baris return
+
+      console.log(tambah(3, 5)); // Output: 8
+
+      const user = {
+        nama: "Dika",
+        salam: function () {
+          console.log(`Halo, saya ${this.nama}`); // this mengacu ke objek user
+        },
+        salamArrow: () => {
+          console.log(`Halo, saya ${this.nama}`); //Arrow function tidak bisa digunakan untuk method dalam objek jika butuh this.
+        },
+      };
+
+      user.salam(); // Output: Halo, saya Dika
+      user.salamArrow(); // Output: Halo, saya undefined (karena `this` tidak mengacu ke objek user)
+    </script>
+  </body>
+</html>

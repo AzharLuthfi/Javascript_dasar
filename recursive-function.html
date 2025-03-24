@@ -7,6 +7,7 @@
   </head>
   <body>
     <script>
+      // ini menggunakan pengulangan biasa
       function factorial(n) {
         let result = 1;
         for (let i = 1; i <= n; i++) {
@@ -15,8 +16,21 @@
         return result;
       }
 
-      let nilai = factorial(10);
-      console.log(nilai);
+      // ini menggunakan recursive function
+      function factorialRecursive(n) {
+        if (n === 1) {
+          return 1;
+        } else {
+          return n * factorialRecursive(n - 1); // dia memanggil diinya sendiri untuk melakukan pengulangan
+        }
+      }
+
+      let nilai = 6;
+      console.log(`Hasil dari ${nilai}!`);
+      console.log(`ini pake pengulangan biasa: ${factorial(nilai)}`);
+      console.log(
+        `ini pake pengulangan recursive: ${factorialRecursive(nilai)}`
+      );
     </script>
   </body>
 </html>
