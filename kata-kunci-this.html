@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kata Kunci This</title>
+  </head>
+  <body>
+    <script>
+      // jika kita mencoba menampilkan this
+      //   console.log(this); // Output: Window
+
+      //   jika kita coba tampilkan this dalam sebuah function
+      function sampel() {
+        console.info(this); // Output: Window
+
+        // jika kita coba tampilkan this dalam sebuah function
+        function inner() {
+          console.info(this); // Output: Window
+        }
+
+        inner();
+      }
+
+      sampel();
+
+      // dalam object method
+      const person = {
+        name: "Azhar",
+        sayHello: function (value) {
+          console.info(`Hello, my name is ${this.name} and value is ${value}`); // this di object method mengacu pada yang ada di parameter object
+        },
+      };
+
+      person.sayHello("Andi"); // Hello, my name is Azhar and value is Andi
+    </script>
+  </body>
+</html>
