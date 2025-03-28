@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+  <body>
+    <script>
+      // Closure mengeluarkan sebuah function ke luar dari scopenya.
+      // disini contohnya mengeluarkan nested function add ke luar dari function creatorAdder()
+      function creatorAdder(value) {
+        const owner = "Azhar";
+
+        function add(param) {
+          console.info(owner);
+          return param + value;
+        }
+
+        return add;
+      }
+
+      const addTwo = creatorAdder(2); // ketika ini dijalankan seakan akan seperti ini
+      //   function addTwo(param) {
+      //     console.info(Azhar);
+      //     return param + 2;
+      //   }
+
+      // membuktikannya
+
+      console.info(addTwo(10)); // outputnya seharusnya 12
+      console.info(addTwo(20)); // outputnya seharusnya 22
+    </script>
+  </body>
+</html>

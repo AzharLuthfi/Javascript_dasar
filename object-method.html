@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Method</title>
+  </head>
+  <body>
+    <script>
+      // function sebagai salah sau parameter type data object
+
+      // cara pertama dengan mendefnisikan di dalam object langsung
+      //   const person = {
+      //     name: "John",
+      //     age: function (nama) {
+      //       alert(`Halo, ${nama}!`);
+      //     },
+      //   };
+
+      //   person.age("azhar");
+
+      const person = {
+        age: 21,
+      };
+
+      // menambahkan sesudah object dideklarasikan
+      person.age = function (nama) {
+        alert(`Halo, ${nama}!`);
+      };
+
+      person.age("azhar");
+    </script>
+  </body>
+</html>
