@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getter & Setter</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        fristname: "Azhar",
+        lastname: "Luthfiadi",
+        // getter, tidak perlu ada parameter
+        get fullname() {
+          return "fullname: " + this.fristname + " " + this.lastname;
+        },
+        set fullname(value) {
+          // jika value tidak sesuai dengan format, maka akan diubah menjadi lowercase
+          this.fristname = value.split(" ")[0]; // split itu untuk memisah. disini ita memisahkannya dengan spasi
+          this.lastname = value.split(" ")[1];
+        },
+      };
+
+      // menggunakan getter
+      console.log(person.fullname); // My fullname: Azhar Luthfiadi
+      // menggunakan setter
+      person.fullname = "John Doe";
+      console.log("set fristname: " + person.fristname); // John
+      console.log("set lastname: " + person.lastname); // Doe
+
+      console.info("ini setelah melakukan setter: " + person.fullname); // panggil getter cukup seperti memanggil property. tidak harus memanggil dengan function fullname()
+    </script>
+  </body>
+</html>
