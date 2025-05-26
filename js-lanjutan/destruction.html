@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destruction Assignment</title>
+  </head>
+  <body>
+    <script>
+      // destruction assignment
+
+      // <!--  INI UNTUK ARRAY  --!>
+
+      // kita buat array
+      //   let array = [1, 2, 3, 4, 5];
+      // mengambil value array dengan cara biasa -- > cara biasa
+      //   let value = array[0];
+      //   console.log(value);
+
+      // 1. mengambil value dengan destruction assignment -- > cara destruction
+      //   let [value1, value2, value3, value4, value5] = array;
+      //   console.log(value1, value5); // 1 5
+
+      // 2. swap nilai array dengan destruction assignment
+      //   let a = 1;
+      //   let b = 2;
+      //   console.log(a); // 1
+      //   console.log(b); // 2
+      //   [a, b] = [b, a]; // array destructuring diisi oleh array baru
+      //   console.log(a); // 2
+      //   console.log(b); // 1
+
+      // 3. return value function dengan destruction assignment
+      //   function getValues() {
+      //     // fungtion ini mereturn array
+      //     return [1, 2, 3];
+      //   }
+
+      //   const [a, b, c] = getValues();
+      //   console.log(a); // 1
+      //   console.log(b); // 2
+      //   console.log(c); // 3
+
+      //  4.spread operator
+      //    let array = [1, 2, 3];
+      //    let [a, ...value] = array;
+      //     console.log(value); // 1 2 3
+
+      // <!--  INI UNTUK OBJECT  --!>
+      // kita buat object
+      // let's say we have an object
+      //   let object = {
+      //     name: "John",
+      //     age: 25,
+      //     address: "Jakarta",
+      //   };
+      // mengambil value object dengan cara biasa
+      //   let name = object.name;
+      //   console.log(name);
+      // 1. mengambil value object dengan destruction assignment
+      //   let { name, age, address } = object; // -- > cara destruction let { name, age, address } harus sama nama propertynya gabisa kaya array yang bebas namanya
+      //   console.log(name); // John
+      //   console.log(age); // 25
+      //   console.log(address); // Jakarta
+
+      // 2. destruction tanpa inisialisasi object dulu
+      //   ({ name, age, address } = { name: "John", age: 25, address: "Jakarta" });
+
+      // 3. mengambil value object dengan destruction assignment dan mengubah namanya propertynya
+      //   let { name: newName, age: newAge, address: newAddress } = object;
+
+      // 4. default value pake destruction
+      //   let object = {
+      //     name: "John",
+      //     age: 25,
+      //   };
+      //
+      //   let {
+      //     name: newName,
+      //     age: newAge,
+      //     address: newAddress = "Bandung",
+      //   } = object;
+
+      // mengambil field object, setelah dikirim sebagai parameter untuk function
+      const mhs = {
+        id: 1,
+        name: "John",
+        age: 25,
+        address: "Jakarta",
+      };
+
+      //   function getIdMhs(mhs) { // --- > ini biasa
+      //     return mhs.id;
+      //   }
+
+      //   console.log(getIdMhs(mhs));
+
+      function getIdMhs({ id }) {
+        // --- > parameter di pecah(distruction) jadi id saja
+        // --- > ini pake destruction
+        return id; // --- > return id saja
+      }
+
+      console.log(getIdMhs(mhs)); // 1
+    </script>
+  </body>
+</html>
