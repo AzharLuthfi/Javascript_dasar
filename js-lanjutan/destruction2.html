@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destruction Part 2</title>
+  </head>
+  <body>
+    <script>
+      // destruction
+      //   function penjumlahanPerkalian(a, b) {
+      //     return [a + b, a * b]; // return array 2 nilai
+      //   }
+
+      //   //   const jumlah = penjumlahanPerkalian(2, 3)[0]; // ambil nilai pertama array
+      //   //   const kali = penjumlahanPerkalian(2, 3)[1]; // ambil nilai kedua array
+      //   //   console.log(jumlah); // 5
+      //   //   console.log(kali); // 6
+
+      //   // kita sudah tau function mengembalikan array
+      //   // maka kita bisa melakukan distruction
+      //   const [jumlah, kali] = penjumlahanPerkalian(2, 3);
+      //   console.log(jumlah); // 5
+      //   console.log(kali); // 6
+
+      //   function kalkulasi(a, b) {
+      //     return [a + b, a - b, a * b, a / b]; // return array 4 nilai
+      //   }
+
+      //   const [jumlah, kurang, kali, bagi] = kalkulasi(10, 2); // -- ini yg bener // kalo array penamaannya harus sesuai urutan
+      //   //   const [kurang, jumlah, kali, bagi] = kalkulasi(10, 2); //  a + b  akan diisi ke kurang
+      //   console.log(jumlah); // 12
+      //   console.log(kurang); // 8
+      //   console.log(kali); // 20
+      //   console.log(bagi); // 5
+
+      // Object
+      //   function biodata(a, b) {
+      //     return {
+      //       tambah: a + b,
+      //       kurang: a - b,
+      //       kali: a * b,
+      //       bagi: a / b,
+      //     }; // return object
+      //   }
+
+      //   // const {} = biodata(10, 2); // -- ini salah // kalo object penamaannya harus sesuai nama property
+      //   // ini bener // kalo object penamaannya sudah terasosiasi dengan nama property
+      //   // object, jadi bebas mana dulu yg dipanggil, ini contohnya
+      //   const { bagi, kali, kurang, tambah } = biodata(20, 5);
+      //   console.log(tambah); // 25
+      //   console.log(kurang); // 15
+      //   console.log(kali); // 100
+      //   console.log(bagi); // 4
+
+      // destructuring argumens
+      const mhs1 = {
+        nama: "Azhar",
+        umur: 20,
+        email: "Azhar@gmail.com",
+        nilai: {
+          tugas: 80,
+          uts: 90,
+          uas: 70,
+        },
+      };
+      const mhs2 = {
+        nama: "bagus",
+        umur: 20,
+        email: "Bagus@gmail.com",
+        nilai: {
+          tugas: 80,
+          uts: 90,
+          uas: 70,
+        },
+      };
+      // 2. destructuring property object
+      function cetakMhs({ nama, umur, email, nilai: { tugas, uas, uts } }) {
+        // --> 3. object di pecah di sini, dan property nilai juga di pecah lagi
+        return `Hallo, nama saya ${nama}. saya berumur ${umur}, dan email saya ${email}\ndan nilai UAS saya adalah ${uas}`;
+      }
+
+      console.log(cetakMhs(mhs1)); // 1. parameternya berupa object
+    </script>
+  </body>
+</html>
