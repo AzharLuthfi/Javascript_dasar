@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spread Operator</title>
+    <style>
+      body {
+        background-color: brown;
+        text-align: center;
+      }
+
+      .nama span {
+        /* karena span itu inline rubah jadi inline block dulu agar bisa transform*/
+        display: inline-block;
+        font-family: arial;
+        font-size: 80px;
+        color: white;
+        transition: 0.3s;
+      }
+
+      .nama span:hover {
+        transform: scale(1.5) translateY(-20px);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <ul>
+      <li>Azhar</li>
+      <li>Luthfi</li>
+      <li>Adi</li>
+    </ul> -->
+
+    <h1 class="nama">Azhar Luthfiadi</h1>
+    <script>
+      // spread (menyebarkan) operator
+      // 1. menggabungkan 2 array
+      //   const mhs = ["azhar", "reza", "faris"];
+      //   const dosen = ["sandhika", "eko", "bagus"];
+      //   // gabungin dosen dan mhs
+      //   const orang = [...mhs, "aji", ...dosen]; // fleksibel dan bisa ditambahkan nilai baru di tengahnya
+
+      //   console.log(mhs);
+      //   console.log(dosen);
+      //   console.log(orang);
+
+      // 2. mencopy sebuah array
+      //   const mhs = ["azhar", "reza", "faris"];
+      //   const duplikat = mhs; // ini mengkopy namun,
+      //   duplikat[0] = "udin"; // jika kita mencoba menimpah index ke 0
+      // itu akan merubah array mhs[] juga bukan hanya duplikat nya
+
+      // dengan sprade operator jika kita coba menimpa index ke 0 misal, itu tidak
+      // mempengaruhi array mhs[]
+      //   const duplikat = [...mhs]; // ini sama dengan mengkopy array mhs ke array duplikat
+      //   duplikat[0] = "udin";
+      //   console.log(`ini array mhs: ${mhs}`);
+      //   console.log(`ini array duplikat: ${duplikat}`);
+
+      // 3. membuat tiap "li" jadi element array
+      //   const liMhs = document.querySelectorAll("li");
+      //   const mhs = [];
+      //   for(let i = 0; i < liMhs.length; i++ ){
+      //     mhs.push(liMhs[i].textContent);
+      //   }
+      //   const mhs = [...liMhs].map((m) => m.textContent);
+      //   console.log(mhs);
+
+      // 4. membuat setiap huruf ketika di hover scalenya naik
+      const nama = document.querySelector(".nama");
+      const huruf = [...nama.textContent]
+        .map((h) => `<span>${h}</span>`)
+        .join("");
+      nama.innerHTML = huruf;
+    </script>
+  </body>
+</html>
