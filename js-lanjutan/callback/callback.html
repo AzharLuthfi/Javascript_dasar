@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback Function</title>
+  </head>
+  <body>
+    <script>
+      // callbacks function adalah function
+      // yang dikirimkan sebagai parameter function lain
+      // -- Synchronus callbacks
+      //   function hallo(nama) {
+      //     alert(`Hallo, ${nama}`);
+      //     console.log(`Hallo, ${nama}`);
+      //   }
+
+      //   function tampilkanPesan(callback) {
+      //     const nama = prompt("Masukan Nama: ");
+      //     callback(nama);
+      //   }
+      // -- penggunaan callback
+      //   tampilkanPesan(hallo());// kalo pake kurung func hallo akan dieksekusi duluan
+      //   tampilkanPesan(hallo); // kalo pake tanpa kurung func hallo tidak akan dieksekusi duluan
+      // -- atau bisa pake arrow function
+      //   tampilkanPesan((nama) => alert(`Hallo, ${nama}`));
+
+      // -- Asynchronus callbacks
+      //   const mhs = [
+      //     {
+      //       nama: "Rifat",
+      //       nrp: 20,
+      //       email: "rifat@gmail.com",
+      //       jurusan: "Teknik Informatika",
+      //       wali_id: 1,
+      //     },
+      //     {
+      //       nama: "Azhar",
+      //       nrp: 20,
+      //       email: "Azhar@gmail.com",
+      //       jurusan: "Teknik pangan",
+      //       wali_id: 1,
+      //     },
+      //     {
+      //       nama: "ijat",
+      //       nrp: 20,
+      //       email: "ijat@gmail.com",
+      //       jurusan: "Teknik lingkungan",
+      //       wali_id: 2,
+      //     },
+      //     {
+      //       nama: "budi",
+      //       nrp: 20,
+      //       email: "budi@gmail.com",
+      //       jurusan: "Teknik perancangan kota",
+      //       wali_id: 2,
+      //     },
+      //     {
+      //       nama: "eko",
+      //       nrp: 20,
+      //       email: "eko@gmail.com",
+      //       jurusan: "Teknik industri",
+      //       wali_id: 3,
+      //     },
+      //   ];
+
+      //   const mahasiswa = [...mhs]; kopi array mhs
+      //   console.log("Mulai");
+
+      //   // const namaMhs = mahasiswa.map((mhs) => mhs.nama); // ambil nama mahasiswa
+      //   mahasiswa.forEach((m) => {
+      //     // percobaan pemanggilan data yng lama
+      //     // simulasi ngambil API dari luar bisa jadi memakan waktu lama;
+      //     for (let index = 0; index < 10000000; index++) {
+      //       let date = new Date();
+      //     }
+      //     console.log(m.nama);
+      //   });
+      //   console.log("selesai"); // ini akan di eksekusi lama
+
+      // Asynchronous Callback
+      function getDataMahasiswa(url, success, error) {
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+              success(xhr.response);
+            } else if (xhr.status == 404) {
+              error(xhr.statusText);
+            }
+          }
+        };
+
+        xhr.open("GET", url);
+        xhr.send();
+      }
+
+      console.log("Mulai");
+      // callback -- kalo mau jalanin ini pastiin simpen di web server atau install ekstension live server
+      getDataMahasiswa(
+        "dataMahasiswa.json",
+        (results) => {
+          const mahasiswa = JSON.parse(results);
+          mahasiswa.forEach((m) => {
+            console.log(m.nama);
+          });
+        },
+        (error) => console.error(error)
+      );
+
+      console.log("selesai"); // ini akan di jalanin duluan setelah mulai
+    </script>
+  </body>
+</html>

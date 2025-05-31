@@ -1,0 +1,37 @@
+[
+  {
+    "nama": "Rifat",
+    "nrp": 20,
+    "email": "rifat@gmail.com",
+    "jurusan": "Teknik Informatika",
+    "wali_id": 1
+  },
+  {
+    "nama": "Azhar",
+    "nrp": 21,
+    "email": "Azhar@gmail.com",
+    "jurusan": "Teknik Pangan",
+    "wali_id": 1
+  },
+  {
+    "nama": "Ijat",
+    "nrp": 22,
+    "email": "ijat@gmail.com",
+    "jurusan": "Teknik Lingkungan",
+    "wali_id": 2
+  },
+  {
+    "nama": "Budi",
+    "nrp": 23,
+    "email": "budi@gmail.com",
+    "jurusan": "Teknik Perancangan Kota",
+    "wali_id": 2
+  },
+  {
+    "nama": "Eko",
+    "nrp": 24,
+    "email": "eko@gmail.com",
+    "jurusan": "Teknik Industri",
+    "wali_id": 3
+  }
+]

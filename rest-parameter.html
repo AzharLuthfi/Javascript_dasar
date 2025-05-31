@@ -7,13 +7,14 @@
   </head>
   <body>
     <script>
-      // Rest Parameter
+      // Rest Parameter (sisa parameter)
       // The rest parameter is a parameter in a function that allows us
       // to pass a variable number of arguments to a function.
       // The rest parameter is denoted by three dots (...) before the parameter name.
       // The rest parameter is used to pass a variable number of arguments to a function.
       // rest parameter harus disimpan di akhir
 
+      // function addNumbers(...numbers, nama) { kalo gini salah karena rest itu artinya sisa nya
       function addNumbers(nama, ...numbers) {
         let sum = 0;
         for (const item of numbers) {
