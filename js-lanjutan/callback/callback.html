@@ -6,6 +6,11 @@
     <title>Callback Function</title>
   </head>
   <body>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <script>
       // callbacks function adalah function
       // yang dikirimkan sebagai parameter function lain
@@ -79,37 +84,53 @@
       //   console.log("selesai"); // ini akan di eksekusi lama
 
       // Asynchronous Callback
-      function getDataMahasiswa(url, success, error) {
-        let xhr = new XMLHttpRequest();
+      // function getDataMahasiswa(url, success, error) {
+      //   let xhr = new XMLHttpRequest();
 
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-              success(xhr.response);
-            } else if (xhr.status == 404) {
-              error(xhr.statusText);
-            }
-          }
-        };
+      //   xhr.onreadystatechange = function () {
+      //     if (xhr.readyState == 4) {
+      //       if (xhr.status == 200) {
+      //         success(xhr.response);
+      //       } else if (xhr.status == 404) {
+      //         error(xhr.statusText);
+      //       }
+      //     }
+      //   };
 
-        xhr.open("GET", url);
-        xhr.send();
-      }
+      //   xhr.open("GET", url);
+      //   xhr.send();
+      // }
 
-      console.log("Mulai");
-      // callback -- kalo mau jalanin ini pastiin simpen di web server atau install ekstension live server
-      getDataMahasiswa(
-        "dataMahasiswa.json",
-        (results) => {
-          const mahasiswa = JSON.parse(results);
-          mahasiswa.forEach((m) => {
-            console.log(m.nama);
+      // console.log("Mulai");
+      // // callback -- kalo mau jalanin ini pastiin simpen di web server atau install ekstension live server
+      // getDataMahasiswa(
+      //   "dataMahasiswa.json",
+      //   (results) => {
+      //     const mahasiswa = JSON.parse(results);
+      //     mahasiswa.forEach((m) => {
+      //       console.log(m.nama);
+      //     });
+      //   },
+      //   (error) => console.error(error)
+      // );
+
+      // console.log("selesai"); // ini akan di jalanin duluan setelah mulai
+
+      // jQuery
+      console.log("mulai");
+      $.ajax({
+        url: "dataMahasiswa.json",
+        method: "GET",
+        success: (mhs) => {
+          mhs.forEach((element) => {
+            console.log(element.nama);
           });
         },
-        (error) => console.error(error)
-      );
-
-      console.log("selesai"); // ini akan di jalanin duluan setelah mulai
+        error: (error) => {
+          console.log(error.responseText);
+        },
+      });
+      console.log("Selesai");
     </script>
   </body>
 </html>
