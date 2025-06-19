@@ -1,14 +1,54 @@
-$.ajax({
-  url: "http://www.omdbapi.com/?apikey=80cf594c&s=avengers", // url api omdb
-  method: "GET", // method yg di pake pasti GET karena ngambil data
-  success: function (data) {
-    // jika success mengambil data
-    const movies = data.Search;
-    let cards = "";
-    if (movies) {
-      // Add a check to ensure movies array exists
-      movies.forEach((movie) => {
-        cards += `
+$(".button-search").on("click", function () {
+  // ambil data dari inputtan search
+  const input = $(".input-keyword").val(); // val() -> untuk ambil value nya pake jquery
+  $.ajax({
+    url: `http://www.omdbapi.com/?apikey=80cf594c&s=${input}`, // url api omdb
+    method: "GET", // method yg di pake pasti GET karena ngambil data
+    success: function (data) {
+      // jika success mengambil data
+      const movies = data.Search;
+      let cards = "";
+      if (movies) {
+        // Add a check to ensure movies array exists
+        movies.forEach((movie) => {
+          cards += showCards(movie);
+        });
+        $(".movies-container").html(cards);
+      } else {
+        $(".movies-container").html(
+          "<p class='text-center'>No movies found.</p>"
+        );
+      }
+
+      // ketika tombol show detail di klik
+      $(".modal-detail-button").on("click", function () {
+        // ambil imdbid dari button
+        const imdbid = $(this).attr("data-imdbid");
+        $.ajax({
+          url: `http://www.omdbapi.com/?apikey=80cf594c&i=${imdbid}`,
+          method: "GET",
+          success: function (data) {
+            // ambil data movie
+            const movie = data;
+            // isi data movie ke dalam modal
+            const movieDetail = showMovieDetails(movie);
+            $("#movieDetailModal .modal-body").html(movieDetail);
+          },
+          error: function (e) {
+            console.log("Error fetching movie details:", e.responseText);
+          },
+        });
+      });
+    }, // This closing brace was missing
+    error: function (e) {
+      // jika error
+      console.log("Error fetching movie list:", e.responseText);
+    },
+  });
+});
+
+function showCards(movie) {
+  return `
           <div class="col-md-4 my-3 ">
             <div class="card">
               <img src="${movie.Poster}" class="card-img-top" alt="No poster" />
@@ -21,26 +61,10 @@ $.ajax({
             </div>
           </div>
           `;
-      });
-      $(".movies-container").html(cards);
-    } else {
-      $(".movies-container").html(
-        "<p class='text-center'>No movies found for 'Avengers'.</p>"
-      );
-    }
+}
 
-    // ketika tombol show detail di klik
-    $(".modal-detail-button").on("click", function () {
-      // ambil imdbid dari button
-      const imdbid = $(this).attr("data-imdbid");
-      $.ajax({
-        url: `http://www.omdbapi.com/?apikey=80cf594c&i=${imdbid}`,
-        method: "GET",
-        success: function (data) {
-          // ambil data movie
-          const movie = data;
-          // isi data movie ke dalam modal
-          const movieDetail = `
+function showMovieDetails(movie) {
+  return `
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-3">
@@ -60,16 +84,4 @@ $.ajax({
                 </div>
             </div>
           `;
-          $("#movieDetailModal .modal-body").html(movieDetail);
-        },
-        error: function (e) {
-          console.log("Error fetching movie details:", e.responseText);
-        },
-      });
-    });
-  }, // This closing brace was missing
-  error: function (e) {
-    // jika error
-    console.log("Error fetching movie list:", e.responseText);
-  },
-});
+}
