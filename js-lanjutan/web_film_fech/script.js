@@ -1,46 +1,98 @@
 // fetch api bawaan js
 
-const searchBtn = document.querySelector(".button-search");
-searchBtn.addEventListener("click", function () {
-  const input = document.querySelector(".input-keyword").value.trim();
-  fetch(`http://www.omdbapi.com/?apikey=80cf594c&s=${input}`)
-    .then((response) => response.json())
-    .then((response) => {
-      const movies = response.Search;
-      let cards = "";
-      if (movies) {
-        movies.forEach((movie) => (cards += showCards(movie)));
-        document.querySelector(".movies-container").innerHTML = cards;
-      } else {
-        document.querySelector(".movies-container").innerHTML =
-          "<h2 class='text-center'>No movies found.</h2>";
-      }
+// const searchBtn = document.querySelector(".button-search");
+// searchBtn.addEventListener("click", function () {
+//   const input = document.querySelector(".input-keyword").value.trim();
+//   fetch(`http://www.omdbapi.com/?apikey=80cf594c&s=${input}`)
+//     .then((response) => response.json())
+//     .then((response) => {
+//       const movies = response.Search;
+//       let cards = "";
+//       if (movies) {
+//         movies.forEach((movie) => (cards += showCards(movie)));
+//         document.querySelector(".movies-container").innerHTML = cards;
+//       } else {
+//         document.querySelector(".movies-container").innerHTML =
+//           "<h2 class='text-center'>No movies found.</h2>";
+//       }
 
-      // ketika tombol show detail di klik
-      const modalDetailButtons = document.querySelectorAll(
-        ".modal-detail-button"
-      );
-      modalDetailButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const imdbid = button.getAttribute("data-imdbid");
-          fetch(`http://www.omdbapi.com/?apikey=80cf594c&i=${imdbid}`)
-            .then((response) => response.json())
-            .then((response) => {
-              const movie = response;
-              // isi data movie ke dalam modal
-              const movieDetail = showMovieDetails(movie);
-              $("#movieDetailModal .modal-body").html(movieDetail);
-            })
-            .catch((error) =>
-              console.error("Error fetching movie details:", error)
-            );
-        });
-      });
-    })
-    .catch((error) => {
-      console.error("Error fetching movie list:", error);
-    });
+//       // ketika tombol show detail di klik
+//       const modalDetailButtons = document.querySelectorAll(
+//         ".modal-detail-button"
+//       );
+//       modalDetailButtons.forEach((button) => {
+//         button.addEventListener("click", function () {
+//           const imdbid = button.getAttribute("data-imdbid");
+//           fetch(`http://www.omdbapi.com/?apikey=80cf594c&i=${imdbid}`)
+//             .then((response) => response.json())
+//             .then((response) => {
+//               const movie = response;
+//               // isi data movie ke dalam modal
+//               const movieDetail = showMovieDetails(movie);
+//               $("#movieDetailModal .modal-body").html(movieDetail);
+//             })
+//             .catch((error) =>
+//               console.error("Error fetching movie details:", error)
+//             );
+//         });
+//       });
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching movie list:", error);
+//     });
+// });
+
+const searchBtn = document.querySelector(".button-search");
+searchBtn.addEventListener("click", async function () {
+  const input = document.querySelector(".input-keyword").value.trim();
+  const movies = await getMovies(input); // kalo gapake async await ini akan dianggap syncronus dan akan mengembalikan promise yang masih pending statusnya
+  updateUI(movies);
+  // ketika tombol show detail di klik
+  // const modalDetailButtons = document.querySelectorAll(".modal-detail-button");
+  // modalDetailButtons.forEach((button) => {
+  //   button.addEventListener("click", async function () {
+  //     const imdbid = button.getAttribute("data-imdbid");
+  //     const movie = await getMovieDetails(imdbid);
+  //     updateMovieDetailUI(movie);
+  //   });
+  // });
 });
+
+// event binding
+document.addEventListener("click", async function (e) {
+  if (e.target.classList.contains("modal-detail-button")) {
+    const imdbid = e.target.getAttribute("data-imdbid");
+    const movie = await getMovieDetails(imdbid);
+    updateMovieDetailUI(movie);
+  }
+});
+
+function getMovies(keyword) {
+  return fetch(`http://www.omdbapi.com/?apikey=80cf594c&s=${keyword}`)
+    .then((response) => response.json())
+    .then((response) => response.Search);
+}
+
+function updateUI(movies) {
+  let card = "";
+  if (movies) {
+    movies.forEach((movie) => (card += showCards(movie)));
+    document.querySelector(".movies-container").innerHTML = card;
+  } else {
+    document.querySelector(".movies-container").innerHTML =
+      "<h2 class='text-center'>No movies found.</h2>";
+  }
+}
+
+function getMovieDetails(imdbid) {
+  return fetch(`http://www.omdbapi.com/?apikey=80cf594c&i=${imdbid}`)
+    .then((response) => response.json())
+    .then((response) => response);
+}
+function updateMovieDetailUI(movie) {
+  const modalDetail = document.querySelector(".modal-body");
+  modalDetail.innerHTML = showMovieDetails(movie);
+}
 
 function showCards(movie) {
   return `
