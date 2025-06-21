@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello world</title>
+  </head>
+  <body>
+    <script>
+      function hello(name) {
+        if (name === null || name === undefined) {
+          // check if name is null or undefined
+          return console.log("Hello, World!");
+        } else if (name === "") {
+          // check if name is an empty string
+          return console.log("Hello, World!");
+        } else {
+          // if name is not null, undefined, or an empty string
+          return console.log(
+            "Hello, " +
+              name.charAt(0).toUpperCase() +
+              name.slice(1).toLowerCase() +
+              "!"
+          );
+        }
+      }
+      hello("azhar");
+    </script>
+  </body>
+</html>
